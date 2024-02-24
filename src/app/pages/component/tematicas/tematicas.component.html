@@ -1,0 +1,13 @@
+<h1> Listado de Tematicas</h1>
+<table>
+    <th>id</th>
+    <th> nombre</th>
+    <tr *ngFor="let tematica of tematicas">
+   <td>{{tematica.id}}</td> 
+   <td>{{tematica.nombre}}</td> 
+    </tr>
+
+    <button (click)="irFormTematica()"> Crear</button>
+</table>
+
+
