@@ -3,6 +3,11 @@ import { Tematicas } from './model/tematicas';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LocalStorageService } from './services/local-storage.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalComponent } from './pages/component/modal/modal.component';
+import { FormularioTematicasComponent } from './pages/component/tematicas/formulario-tematicas/formulario-tematicas.component';
+import { tematicas_mock } from 'src/app/mock/mock';
+
 
 @Component({
   selector: 'app-root',
@@ -10,94 +15,55 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  formtema:FormGroup= this.fb.group({
+  /*formtema:FormGroup= this.fb.group({
     id:'',
     nombre:''
-  })
-  tematicas:Tematicas[] = [];
+  })*/
+  // tematicas:Tematicas[] = [];
   nuevoRegistro: any;
-  tema:any;
+  tema: any;
+
+  tematicas: Tematicas[] = tematicas_mock;
 
 
-constructor(public localStorage:LocalStorageService,public fb:FormBuilder){}
 
-/*ngOnInit(){
-  console.log('listarTema',this.tematicas);
-}*/
+  constructor(public dialog: MatDialog, localStorage: LocalStorageService, public fb: FormBuilder, public route: Router, public activerouter: ActivatedRoute) { }
 
-ngOnInit() {
- // Obtén el arreglo desde LocalStorage al iniciar
- this.tematicas= this.localStorage.obtenerDesdeLocalStorage() || [];
-
- // También puedes establecer un escucha para cambios en el formulario
- this.formtema.valueChanges.subscribe(() => {
-   // Puedes realizar acciones adicionales aquí si es necesario
- });
-
-  /*const datosGuardados = localStorage.getItem('prueba3');
-  if (datosGuardados) {
-    
-   
-this.formtema.setValue(JSON.parse(datosGuardados));
+  abrirModal() {
+    const dialogRef = this.dialog.open(ModalComponent, {
+      width: '800px',
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('El modal se cerró');
+    });
   }
-  this.guardarEnLocalStorage();*/
 
-}
 
-onSubmit(){
-  if (this.formtema.valid) {
-    const nuevaEntrada = this.formtema.value;
-    this.tematicas.push(nuevaEntrada);
 
-    // Guarda el arreglo en LocalStorage
-    this.localStorage.guardarEnLocalStorage(this.tematicas);
 
-    // Limpia el formulario
-    this.formtema.reset();
+  ngOnInit() {
+    // Obtén el arreglo desde LocalStorage al iniciar
+    // this.tematicas= this.localStorage.obtenerDesdeLocalStorage() || [];
+
+    // También puedes establecer un escucha para cambios en el formulario
+    //this.formtema.valueChanges.subscribe(() => {
+    // Puedes realizar acciones adicionales aquí si es necesario
+    //});
+
+
   }
-}
-}
 
-
-
-/*guardarRegistro(tema:any) {
-  if (this.nuevoRegistro && this.nuevoRegistro.trim) {
-    const trimmedValue = this.nuevoRegistro.trim();
-
-    if (trimmedValue !== '') {
-      
-    
-this.tematicas.push(trimmedValue);
-      
-    
-this.nuevoRegistro = ''; // Limpiar el campo después de guardar
-
-      
-
-    
-
-
-// Guardar registros en el almacenamiento local
-      
-      
-this.localStorage.saveData('prueba9', tema.value);
-console.log('localstore',this.tema);
+  /*onSubmit(){
+    if (this.formtema.valid) {
+      const nuevaEntrada = this.formtema.value;
+      this.tematicas.push(nuevaEntrada);
+  
+      // Guarda el arreglo en LocalStorage
+      this.localStorage.guardarEnLocalStorage(this.tematicas);
+  
+      // Limpia el formulario
+      this.formtema.reset();
     }
-  }
-}*/
-/*
-guardarEnLocalStorage() {
-  // Guardar el valor del formulario en el localStorage
+  }*/
 
-localStorage.setItem('prueba3', JSON.stringify(this.formtema.value));
 }
-
-// Otros métodos y lógica del componente
-}
-*/
-
-
-
-
-
-

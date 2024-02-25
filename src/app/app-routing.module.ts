@@ -2,11 +2,14 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TematicasComponent } from './pages/component/tematicas/tematicas.component';
 import { FormularioTematicasComponent } from './pages/component/tematicas/formulario-tematicas/formulario-tematicas.component';
+import { ModalComponent } from './pages/component/modal/modal.component';
 
 const routes: Routes = [
 
-  {path:'tematicas', component: TematicasComponent},
-  { path:'formulario-tematicas', component:FormularioTematicasComponent}
+  {path:'', component: TematicasComponent},
+  
+  { path:'formulario-tematicas', component:FormularioTematicasComponent},
+  { path:'modal', component:ModalComponent}
 
 ];
 
@@ -14,4 +17,9 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule { 
+
+  constructor(){
+  }
+  
+}

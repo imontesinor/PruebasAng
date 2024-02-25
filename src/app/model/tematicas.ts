@@ -1,8 +1,6 @@
 export class Tematicas {
-    id!:number;
-    nombre!:string;
-    
-    constructor(){
-       
-    }
+    name!:string;
+    color1!:string;
+    color2!:string;
+   
 }

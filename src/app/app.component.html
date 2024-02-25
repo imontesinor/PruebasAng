@@ -1,31 +1,22 @@
-<h1>Tematicas</h1>
+<!DOCTYPE html>
+<html lang="en">
+<!-- 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tematicas</title>
+</head> -->
 
-<div>
-  <h2>Registros Locales</h2>
-  <form [formGroup]="formtema"  (ngSubmit)="onSubmit()">
-    <label>id:</label>
-    <input formControlName="id" value="id" placeholder="id" class="form-control">
+<body>
 
-    <label>nombre:</label>
-    <input formControlName="nombre" value="nombre" placeholder="nombre" class="nombre">
-    <button type="submit">Guardar</button>
-  </form>
-  <ul>
-    <li *ngFor="let registro of tematicas" >
-      {{ registro?.id }}
-      {{ registro?.nombre }}
-    
-    </li>
-   
-  </ul>
-</div>
+  <header>
+    <h1>Tematicas</h1>
+  </header>
 
-  <!--  <app-tematicas></app-tematicas>
+  <div class="container">
+    <router-outlet></router-outlet>
   </div>
-  <router-outlet></router-outlet>
 
-<th> lista </th>
-<tr *ngFor="let tematica of tematicas">
+</body>
 
-<td> {{tematica.nombre}} </td>
-</tr>-->
+</html>

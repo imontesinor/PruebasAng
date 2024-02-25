@@ -1,13 +1,42 @@
-<h1> Listado de Tematicas</h1>
-<table>
-    <th>id</th>
-    <th> nombre</th>
-    <tr *ngFor="let tematica of tematicas">
-   <td>{{tematica.id}}</td> 
-   <td>{{tematica.nombre}}</td> 
-    </tr>
 
-    <button (click)="irFormTematica()"> Crear</button>
-</table>
+ <p>Aquí va una descripción</p>
+ 
+  <div class="right-align">
 
+    <button class="add-button" (click)="abrirFormularioEnModal()"> + Agregar Nuevo Registro</button>
+  </div>
 
+    <table>
+      <thead>
+
+        <tr>
+          
+          <th>Nombre</th>
+          <th>colores</th>
+          <th>Muestra</th>
+          <th>Acciones</th>
+         
+        </tr>
+      </thead>
+      
+       
+      <tbody>
+       
+         
+   
+        <tr *ngFor="let tem of tematicas">
+         
+          <td>{{tem?.name}}</td>
+          <td>{{tem?.color1 + " - " + tem?.color2}}</td>
+         
+          <td class="color-td">
+            <div class="circle" [style.background]="combineColors(tem.color1, tem.color2)"></div>
+          </td>
+          <td><button class="delete-button" onclick="eliminarRegistro(1)">Eliminar</button></td>
+         
+        </tr>
+       
+      </tbody>
+    </table>
+    <app-formulario-tematicas *ngIf="mostrarModal" (eventema)="listarTematicas()" [temareci]="tematica"></app-formulario-tematicas>
+    

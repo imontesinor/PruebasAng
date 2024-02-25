@@ -1,6 +1,28 @@
-<p>formulario-tematicas</p>
+<div class="form-container">
+    <h2>Agregar Tematica</h2>
+  
+    <form [formGroup]="tematicaForm" (ngSubmit)="onSubmit()">
+      <label for="name">Nombre:</label>
+      <input type="text" id="name" formControlName="name" required>
+  
+      <div class="color-input-container">
+      <label for="colorInput">Color 1:</label>
+      <input type="color" id="color1" formControlName="color1" placeholder="seleccionar en la Muestra" required>
+     </div>
+     <div class="color-input-container">
+      <label for="colorInput">Color 2:</label>
+      <input type="color" id="color2" formControlName="color2" required>
+    </div>
+      <div class="form-footer">
+        <button type="button" (click)="tematicaForm.reset()">Cancelar</button>
+        <button type="submit">Guardar</button>
+      </div>
+    </form>
+  </div>
 
-<form [formGroup]="formTematica" (submit)="ngSubmit()">
+<!-- <p>formulario-tematicas</p>
+
+<form [formGroup]="formTematica" (ngSubmit)="eventoFormulario()">
 
     <label>id</label>
     <input type="text" formControlName="id" value="id" placeholder="id" class="form-control">
@@ -11,4 +33,4 @@
     <button type="submit"> guardar</button>
 
 
-</form>
+</form> -->
