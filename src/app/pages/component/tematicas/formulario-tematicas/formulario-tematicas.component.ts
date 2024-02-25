@@ -6,7 +6,7 @@ import { tematicas_mock } from 'src/app/mock/mock';
 import { Tematicas } from 'src/app/model/tematicas';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
 import { ModalComponent } from '../../modal/modal.component';
-import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-formulario-tematicas',
@@ -33,15 +33,24 @@ export class FormularioTematicasComponent {
 
   }
  
+  ngOnInit(){
+    
+  }
 
-  onSubmit() {
+ onSubmit() {
 this.guardarTematica(this.tematicaForm);
   }
   eventoFormulario() {
     let p= this.eventema.emit(this.tematica);
     console.log('envioEvento', p)
   }
-  guardarTematica(tema:any):void{
+
+   
+
+
+
+  //volver a colocar si algo funcional
+ guardarTematica(tema:any):void{
     if (this.tematicaForm.valid) {
   
       this.localStorage.guardarEnLocalStorage(tema.value);
@@ -61,16 +70,6 @@ this.guardarTematica(this.tematicaForm);
 
 
 
- /* openModal(): void {
-    const dialogRef = this.dialog.open(ModalComponent, {
-      width: '400px',
-      data: { formulario: this.tematicaForm.value }
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('El diálogo se cerró');
-    });
-
-  }*/
 
 
 }

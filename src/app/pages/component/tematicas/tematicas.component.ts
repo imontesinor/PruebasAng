@@ -2,11 +2,9 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Tematicas } from 'src/app/model/tematicas';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
-//import { tematicas_mock } from 'src/app/mock/mock';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { FormBuilder } from '@angular/forms';
 import { FormularioTematicasComponent } from './formulario-tematicas/formulario-tematicas.component';
-//import { ModalComponent } from '../modal/modal.component';
+
 
 
 @Component({
@@ -16,18 +14,17 @@ import { FormularioTematicasComponent } from './formulario-tematicas/formulario-
 })
 export class TematicasComponent {
 
- // tematicas: Tematicas[] = tematicas_mock;
  tematicas: Tematicas[] = [];
-  nuevoRegistro: any;
   tematica:any;
   mostrarForm=false;
   mostrarModal: boolean | undefined;
+
   
 
 
 
-  constructor(public dialog: MatDialog,public localStorage: LocalStorageService, public fb: FormBuilder, public route: Router, public activerouter: ActivatedRoute) { }
-
+  constructor(public dialog: MatDialog,public localStorage: LocalStorageService,  public route: Router, public activerouter: ActivatedRoute,) { }
+  
   ngOnInit() {
 
     this.listarTematicas();
@@ -38,6 +35,8 @@ export class TematicasComponent {
 
  
 
+  
+
   listarTematicas(){
     this.tematicas = this.localStorage.obtenerDesdeLocalStorage();
     console.log('obtenerTematica',this.tematicas);
@@ -47,9 +46,7 @@ export class TematicasComponent {
 
 
 
-  // irFormTematica() {
-  //   this.route.navigate(['/formulario-tematicas']);
-  // }
+
 
   abrirFormularioEnModal() {
     const dialogRef = this.dialog.open(FormularioTematicasComponent, {
@@ -57,10 +54,17 @@ export class TematicasComponent {
     });
 
     dialogRef.componentInstance.eventema.subscribe((formulario: any) => {
-      console.log('Formulario enviado desde el modal:', this.tematica= formulario);
-     dialogRef.close();
+ 
+     const tematicaFormControl = dialogRef.componentInstance.tematicaForm;
+     
+     formulario = tematicaFormControl.value;
+    console.log('Tematica guardada:', this.tematica=formulario);
+    this.listarTematicas();
+ 
     });
   }
+
+
 
   combineColors(color1: string, color2: string): string {
     const rgb1 = this.hexToRgb(color1);
