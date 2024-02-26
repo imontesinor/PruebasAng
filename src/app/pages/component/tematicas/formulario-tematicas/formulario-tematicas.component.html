@@ -1,17 +1,19 @@
 <div class="form-container">
 
-  <h2>Agregar Tematica</h2>
+  <h2>Crear Tematica</h2>
+  <p class="colorTex"> Esta es la informacion general de las tematicas. Trata de lllenar la mayor cantidad de datos para
+    que el perfil pueda ser filtrato mas facilmente </p>
 
   <form [formGroup]="tematicaForm" (ngSubmit)="onSubmit()">
     <label for="name">Nombre: </label>
     <input type="text" id="name" formControlName="name" required>
 
     <div class="color-input-container">
-      <label for="colorInput">Color 1:</label>
+      <label for="colorInput">Seleccionar Color 1:</label>
       <input type="color" id="color1" formControlName="color1" placeholder="seleccionar en la Muestra" required>
     </div>
     <div class="color-input-container">
-      <label for="colorInput">Color 2:</label>
+      <label for="colorInput">Seleccionar Color 2:</label>
       <input type="color" id="color2" formControlName="color2" required>
     </div>
     <div class="form-footer">

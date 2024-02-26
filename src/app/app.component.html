@@ -1,22 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tematicas</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link  href="styles.css">
+    <title>Tu Página</title>
 </head>
-
 <body>
-
-  <header>
-    <h1>Tématicas</h1>
-  </header>
-
-  <div class="container">
-    <router-outlet></router-outlet>
+  <div class="wrapper">
+    <header >
+      <h1>Tématicas</h1>
+    </header>
   </div>
+    <div class="wrapper">
+    <aside class="sidebar">
+      <ul>
+          <li><a href="http://localhost:4200/">Empleados</a></li>
+          <li><a href="http://localhost:4200/">Servicios</a></li>
+          <li><a href="http://localhost:4200/">Tematicas</a></li>
+      </ul>
+  </aside>
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+  </div>
+
+
+ 
+ 
+
 
 </body>
 
-</html>
