@@ -1,42 +1,41 @@
+<p>Aquí va una descripción</p>
 
- <p>Aquí va una descripción</p>
- 
-  <div class="right-align">
+<div class="right-align">
 
-    <button class="add-button" (click)="abrirFormularioEnModal()"> + Agregar Nuevo Registro</button>
-  </div>
+  <button class="add-button" (click)="abrirFormularioEnModal()"> + Agregar Nuevo Registro</button>
+</div>
 
-    <table>
-      <thead>
+<table>
+  <thead>
 
-        <tr>
-          
-          <th>Nombre</th>
-          <th>colores</th>
-          <th>Muestra</th>
-          <th>Acciones</th>
-         
-        </tr>
-      </thead>
-      
-       
-      <tbody>
-       
-         
-   
-        <tr *ngFor="let tem of tematicas">
-         
-          <td>{{tem?.name}}</td>
-          <td>{{tem?.color1 + " - " + tem?.color2}}</td>
-         
-          <td class="color-td">
-            <div class="circle" [style.background]="combineColors(tem.color1, tem.color2)"></div>
-          </td>
-          <td><button class="delete-button" onclick="eliminarRegistro(1)">Eliminar</button></td>
-         
-        </tr>
-       
-      </tbody>
-    </table>
-    
-    
+    <tr>
+
+      <th>Nombre</th>
+      <th>colores</th>
+      <th>Muestra</th>
+      <!-- <th>Acciones</th> -->
+
+    </tr>
+  </thead>
+
+
+  <tbody>
+
+
+
+    <tr *ngFor="let tem of tematicas">
+
+      <td>{{tem?.name}}</td>
+      <td>{{tem?.color1 + " - " + tem?.color2}}</td>
+
+      <td class="color-td">
+        <div class="circle" [style.background]="combineColors(tem.color1, tem.color2)"></div>
+      </td>
+      <!-- <td><button class="delete-button" id="eliminarBtn" (click)="confirmarEliminacion(tem.name)">Eliminar Registro</button>
+
+            <script src="script.js"></script></td>
+          -->
+    </tr>
+
+  </tbody>
+</table>

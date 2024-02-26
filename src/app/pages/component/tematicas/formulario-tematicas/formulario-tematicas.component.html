@@ -1,22 +1,23 @@
 <div class="form-container">
-    <h2>Agregar Tematica</h2>
-  
-    <form [formGroup]="tematicaForm" (ngSubmit)="onSubmit()">
-      <label for="name">Nombre:</label>
-      <input type="text" id="name" formControlName="name" required>
-  
-      <div class="color-input-container">
+
+  <h2>Agregar Tematica</h2>
+
+  <form [formGroup]="tematicaForm" (ngSubmit)="onSubmit()">
+    <label for="name">Nombre: </label>
+    <input type="text" id="name" formControlName="name" required>
+
+    <div class="color-input-container">
       <label for="colorInput">Color 1:</label>
       <input type="color" id="color1" formControlName="color1" placeholder="seleccionar en la Muestra" required>
-     </div>
-     <div class="color-input-container">
+    </div>
+    <div class="color-input-container">
       <label for="colorInput">Color 2:</label>
       <input type="color" id="color2" formControlName="color2" required>
     </div>
-      <div class="form-footer">
-        <button type="button" (click)="tematicaForm.reset()">Cancelar</button>
-        <button type="submit">Guardar</button>
-      </div>
-    </form>
-  </div>
-
+    <div class="form-footer">
+      <button class="add-button" type="button" (click)="tematicaForm.reset()">Cancelar</button>
+      <button class="add-button-guardar" type="submit">Guardar</button>
+      <script src="script.js"></script>
+    </div>
+  </form>
+</div>

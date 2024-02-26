@@ -14,35 +14,34 @@ import { FormularioTematicasComponent } from './formulario-tematicas/formulario-
 })
 export class TematicasComponent {
 
- tematicas: Tematicas[] = [];
-  tematica:any;
-  mostrarForm=false;
-  mostrarModal: boolean | undefined;
-
-  
+  tematicas: Tematicas[] = [];
+  tematica: any;
 
 
 
-  constructor(public dialog: MatDialog,public localStorage: LocalStorageService,  public route: Router, public activerouter: ActivatedRoute,) { }
-  
+
+
+
+
+  constructor(public dialog: MatDialog, public localStorage: LocalStorageService, public route: Router, public activerouter: ActivatedRoute,) { }
+
   ngOnInit() {
 
     this.listarTematicas();
 
-    
+
 
   }
 
- 
 
-  
 
-  listarTematicas(){
+
+
+  listarTematicas() {
     this.tematicas = this.localStorage.obtenerDesdeLocalStorage();
-    console.log('obtenerTematica',this.tematicas);
-    this.mostrarModal = false; 
-  }
+    console.log('obtenerTematica', this.tematicas);
 
+  }
 
 
 
@@ -54,13 +53,15 @@ export class TematicasComponent {
     });
 
     dialogRef.componentInstance.eventema.subscribe((formulario: any) => {
- 
-     const tematicaFormControl = dialogRef.componentInstance.tematicaForm;
-     
-     formulario = tematicaFormControl.value;
-    console.log('Tematica guardada:', this.tematica=formulario);
-    this.listarTematicas();
- 
+
+      const tematicaFormControl = dialogRef.componentInstance.tematicaForm;
+
+      formulario = tematicaFormControl.value;
+      console.log('Tematica guardada:', this.tematica = formulario);
+      dialogRef.close();
+      this.listarTematicas();
+
+
     });
   }
 
@@ -87,6 +88,19 @@ export class TematicasComponent {
 
     return { r, g, b };
   }
+
+  /*confirmarEliminacion(id:any) {
+    console.log('seleccionid',id=this.tematica);
+    var confirmacion = confirm("¿Estás seguro de que deseas eliminar este registro?");
+    if (confirmacion) {
+      this.localStorage.eliminarRegistro();
+      alert("Registro eliminado correctamente.");
+    } else {
+      alert("Eliminación cancelada.");
+
+    }
+    this.listarTematicas();
+  }*/
 
 }
 

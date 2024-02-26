@@ -20,22 +20,6 @@ export class ModalComponent {
     this.dialogRef.close();
   }
 
-  /*recibirFormulario(formulario: FormGroup) {
-
-    const datosGuardados = JSON.parse(this.localstorage.obtenerDesdeLocalStorage());
-
-  console.log('obtenerdatos',datosGuardados)
-    datosGuardados.push(formulario.value);
-    localStorage.setItem('datos', JSON.stringify(datosGuardados));
-
-    // Puedes realizar acciones adicionales aquí
-
-    // Cerrar el modal después de manejar el formulario
-    this.cerrarModal();
-
-
-}*/
-
 onSubmit() {
 
 }

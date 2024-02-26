@@ -9,7 +9,7 @@
     color: #fff;
     background-color: #47379f;
     padding: 10px;
-    margin-bottom: 20px; /* Add some margin to separate header from form */
+    margin-bottom: 20px; 
   }
   
   form {
@@ -18,7 +18,7 @@
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0px 0px 10px 0px rgba(42, 16, 185, 0.071); /* Add a subtle box-shadow for a card-like appearance */
+    box-shadow: 0px 0px 10px 0px rgba(42, 16, 185, 0.071);
   }
   
   label {
@@ -32,12 +32,12 @@
   .form-footer {
     margin-top: 20px;
     display: flex;
-    justify-content: flex-end; /* Align buttons to the end of the form */
+    justify-content: flex-end; 
   }
   
-  /* Angular Material button styles */
+
   .form-footer button {
-    margin-left: 8px; /* Add some space between buttons */
+    margin-left: 8px;
   }
   
   .form-footer .save-button {
@@ -55,6 +55,6 @@
 }
 
 .color-input-container input[type=color] {
-    margin-right: 10px; /* Espaciado entre el input de color y el marcador de posición */
+    margin-right: 10px;
 }
   

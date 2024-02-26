@@ -17,6 +17,8 @@ export class LocalStorageService {
     return tematicasString ? JSON.parse(tematicasString) : [];
   }
 
+
+
   guardarEnLocalStorage(datos: any): void {
     let existingArrayString = localStorage.getItem('miArray');
     let existingArray: any[] = [];
@@ -30,7 +32,11 @@ export class LocalStorageService {
     existingArray.push(datos);
     localStorage.setItem('miArray', JSON.stringify(existingArray));
   }
+  
+  eliminarRegistro(){
+    localStorage.removeItem('miArray');
+  }
 
-
+  ///hola commit
 
 }
