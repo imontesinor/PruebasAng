@@ -43,11 +43,13 @@ export class FormularioTematicasComponent {
 
   }
 
+  
 
-
-
-
-
+  cancelarForm(){
+    this.dialog.closeAll();
+   
+   }
+ 
 
 
   //volver a colocar  funcional

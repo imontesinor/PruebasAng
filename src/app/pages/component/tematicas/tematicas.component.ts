@@ -65,8 +65,7 @@ export class TematicasComponent {
     });
   }
 
-
-
+ 
   combineColors(color1: string, color2: string): string {
     const rgb1 = this.hexToRgb(color1);
     const rgb2 = this.hexToRgb(color2);
@@ -89,18 +88,18 @@ export class TematicasComponent {
     return { r, g, b };
   }
 
-  /*confirmarEliminacion(id:any) {
-    console.log('seleccionid',id=this.tematica);
-    var confirmacion = confirm("¿Estás seguro de que deseas eliminar este registro?");
-    if (confirmacion) {
-      this.localStorage.eliminarRegistro();
-      alert("Registro eliminado correctamente.");
-    } else {
-      alert("Eliminación cancelada.");
+// confirmarEliminacion(id:number) {
+//     console.log('seleccionid',);
+//     var confirmacion = confirm("¿Estás seguro de que deseas eliminar este registro?");
+//     if (confirmacion) {
+//       this.localStorage.eliminarRegistro();
+//       alert("Registro eliminado correctamente.");
+//     } else {
+//       alert("Eliminación cancelada.");
 
-    }
-    this.listarTematicas();
-  }*/
+//     }
+//     this.listarTematicas();
+//   }
 
 }
 

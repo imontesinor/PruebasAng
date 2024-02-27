@@ -17,7 +17,7 @@
       <th>Nombre</th>
       <th>colores</th>
       <th>Muestra</th>
-      <!-- <th>Acciones</th> -->
+    <th>Acciones</th> 
 
     </tr>
   </thead>
@@ -26,8 +26,8 @@
   <tbody>
 
 
-
-    <tr *ngFor="let tem of tematicas">
+<h1> Tematicas mas recientes</h1>
+    <tr *ngFor="let tem of tematicas.reverse().slice(0, 4)">
 
       <td>{{tem?.name}}</td>
       <td>{{tem?.color1 + " - " + tem?.color2}}</td>
@@ -35,10 +35,40 @@
       <td class="color-td">
         <div class="circle" [style.background]="combineColors(tem.color1, tem.color2)"></div>
       </td>
-      <!-- <td><button class="delete-button" id="eliminarBtn" (click)="confirmarEliminacion(tem.name)">Eliminar Registro</button>
+       <!-- <td><button class="delete-button" id="eliminarBtn" (click)="confirmarEliminacion(tem?.name)">Eliminar Registro</button>
 
-            <script src="script.js"></script></td>
-          -->
+            <script src="script.js"></script></td> -->
+       
+    </tr>
+
+<h1> Todas las Tematicas</h1>
+    <tr>
+
+      <th>Nombre</th>
+      <th>colores</th>
+      <th>Muestra</th>
+    <th>Acciones</th> 
+
+    </tr>
+
+
+
+  <tbody>
+
+
+
+    <tr *ngFor="let tem of tematicas.reverse()">
+
+      <td>{{tem?.name}}</td>
+      <td>{{tem?.color1 + " - " + tem?.color2}}</td>
+
+      <td class="color-td">
+        <div class="circle" [style.background]="combineColors(tem.color1, tem.color2)"></div>
+      </td>
+       <!-- <td><button class="delete-button" id="eliminarBtn" (click)="confirmarEliminacion(tem?.name)">Eliminar Registro</button>
+
+            <script src="script.js"></script></td> -->
+       
     </tr>
 
   </tbody>
